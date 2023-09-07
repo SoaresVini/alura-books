@@ -1,6 +1,5 @@
 header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: var(--cor-primaria);
@@ -10,10 +9,18 @@ header {
 .header__menu-humburguer {
     width: 24px;
     height: 24px;
+    display: inline-block;
     background-image: url('../assets/Menu.svg');
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
+}
+
+.container__botao:checked ~ .container__label > .header__menu-humburguer{
+    background-image: url('../assets/menu aberto.svg');
+}
+
+.container__botao:checked ~ .container__label {
+    background: var(--cor-secundaria);
 }
 
 .container {
@@ -27,13 +34,12 @@ header {
 
 .container__logo{
     padding: 1em;
-    margin-left: 10px;
 }
 
 .lista-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 75%;
     width: 60vw;
 }
 
@@ -59,11 +65,7 @@ header {
     text-decoration: none;
 }
 
-.container__botao {
-    display: none;
-}
-
-.container__titulo, .opcoes {
+.container__titulo, .opcoes, .container__botao, .container__texto {
     display: none;
 }
 
@@ -95,7 +97,7 @@ header {
         color: black;
     }
 
-    .container__imagem-transparente, .header__menu-humburguer {
+    .container__imagem-transparente, .header__menu-humburguer, .opcoes__botao {
         display: none;
     }
 
@@ -104,9 +106,39 @@ header {
         width: auto;
     }
 
-    .opcoes__botao {
-        display: none;
+    .opcoes__botao:checked~.opcoes__label>.opcoes__item {
+        background: var(--cor-secundaria);
+        color: var(--cor-primaria);
     }
 
-    
+    .lista-menu__item:hover {
+        background: var(--cor-secundaria);
+    }
+
+    .lista-menu__item:hover .lista-menu__link {
+        color: var(--cor-primaria);
+    }
+
+
+}
+
+@media screen and (min-width: 1728px){
+
+    .container__link {
+        display: flex;
+        align-items: center;
+        color: black;
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+    .container {
+        margin-right: 15px;
+    }
+
+    .opcoes{
+        margin-right: auto;
+    }
 }
