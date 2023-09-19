@@ -16,3 +16,5 @@ console.log(r)
 .catch(erro => console.log("SEU ANIMALLLL"))
 .finally('Final do processo')
 )
+
+
